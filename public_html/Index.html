@@ -11,8 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
-    <body>
-        <canvas id="game-screen"></canvas>
+    <body id="index">
+        <section id="gameOver">
+            <h1 class="title">GAME OVER!</h1>
+            <h3 id="restartButton">RESTART?</h3>
+        </section>
+        <canvas id="game-screen" width="800" height="800" style="border: 7px groove #009933"></canvas>
          
         <script src="JavaScript/snake.js"></script>
     </body>

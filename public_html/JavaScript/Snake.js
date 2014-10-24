@@ -13,6 +13,7 @@ var food;
 var context; 
 var screenWidth;
 var screenHeight; 
+var gameState;
 
 /*----------------------------------------------------------------------------
  * Executing Game Code
@@ -32,24 +33,28 @@ function gameInitialize() {
     var canvas = document.getElementById("game-screen");
     context = canvas.getContext("2d");
     
-     screenWidth = window.innerWidth;
-     screenHeight = window.innerHeight; 
+     screenWidth = 800;
+     screenHeight = 500;
      
      canvas.width = screenWidth;
      canvas.height = screenHeight;
      
      document.addEventListener("keydown", keyboardHandler);
+     
+     setState("PLAY");
 }
 
 function gameLoop() {
     gameDraw();
-    snakeUpdate();
-    snakeDraw();
-    foodDraw();
+    if(gameState == "PLAY") {
+        snakeUpdate();
+        snakeDraw();
+        foodDraw();
+    }
 }
 
 function gameDraw() {
-    context.fillStyle = "rgb(5, 227, 64)";
+    context.fillStyle = "rgb(38, 214, 32)";
     context.fillRect(0, 0, screenWidth, screenHeight);
 }
 
@@ -60,7 +65,7 @@ function gameDraw() {
 
 function snakeInitialize() {
     snake = [];
-    snakeLength = 1;
+    snakeLength = 3;
     snakeSize = 20;
     snakeDirection = "down";
     
@@ -164,11 +169,26 @@ function keyboardHandler(event) {
                 y: 0
             });  
             snakeLength++;
+            
+    var randomX = Math.floor(Math.random() * screenWidth);
+    var randomY = Math.floor(Math.random() * screenHeight);
+    
+    food.x = Math.floor(randomX / snakeSize);
+    food.y = Math.floor(randomY / snakeSize);
+}
         }
- }
- 
+
  function checkWallCollisions(snakeHeadX, snakeHeadY) {
      if(snakeHeadX * snakeSize >= screenWidth || snakeHeadX * snakeSize < 0) {
-         console.log("Wall Collision");
+        seState("GAME OVER");
      }
+ }
+ 
+ /*----------------------------------------------------------------------------
+  * Game State Handling
+  * ---------------------------------------------------------------------------
+  */
+ 
+ function setState(state) {
+     gameState = state;
  }
