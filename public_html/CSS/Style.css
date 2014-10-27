@@ -9,5 +9,6 @@ body {
     display:   block;
 }
 #gameOver {
-    postion: absolute;
+    position: absolute;
+    visibility: hidden;
 }
