@@ -12,3 +12,24 @@ body {
     position: absolute;
     visibility: hidden;
 }
+
+h1, h3 {
+    font-family: 'Indie Flower', cursive;
+    color: darkgreen;
+    text-align: center;
+}
+
+.title {
+    font-size: 62px;
+    margin: 0px;
+    margin-top: 0px;
+}
+
+#restartButton {
+    border: 2px groove darkgreen;
+    border-radius: 12px;
+}
+
+#restartButton:hover {
+    background-color:  #009933;
+}
