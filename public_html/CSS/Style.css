@@ -4,20 +4,34 @@ body {
     background-color: #00cc00;
 }
 
-
 #game-screen {
     display:   block;
+    border:  #009933 groove 8px;
 }
-#gameOver {
+#gameOver, #playHUD, #startScreen {
     position: absolute;
     visibility: hidden;
-    padding-left: 200px;
-    
+    padding: 0px;
 }
 
-h1, h3 {
+#startScreen{
+    position: absolute;
+    visibility: visible;
+    padding: 0px;
+}
+
+#gameOver {
+    margin-top: 100px;
+    margin-left: 330px;
+}
+
+#playHUD {
+    margin-left: 355px;
+}
+
+h1, h2, h3, h4 {
     font-family: 'Indie Flower', cursive;
-    color: darkgreen;
+    color: orangered;
     text-align: center;
 }
 
@@ -34,4 +48,8 @@ h1, h3 {
 
 #restartButton:hover {
     background-color:  #009933;
+}
+
+#scoreboard {
+    margin: 0px;
 }
